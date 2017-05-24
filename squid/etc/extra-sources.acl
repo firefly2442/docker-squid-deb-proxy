@@ -1,0 +1,18 @@
+data.alienvault.com                     # AlienVault
+fai-project.org                         # Debian FAI
+apt.dockerproject.org                   # Docker
+packages.elastic.co                     # Elastic (ELK)
+dl.google.com                           # Google
+packages.graylog2.org                   # Graylog
+pkg.jenkins.io                          # Jenkins
+http.kali.org                           # Kali
+nginx.org                               # Nginx
+download.opensuse.org                   # OpenSUSE (Bro)
+build.openvpn.net                       # OpenVPN
+ossec.wazuh.com                         # OSSEC
+www.ossim.net                           # OSSIM (AlienVault)
+download.proxmox.com                    # Proxmox
+archive.raspbian.org                    # RaspberryPi
+repo.saltstack.com                      # SaltStack
+ppa.launchpad.net                       # Ubuntu PPA
+download.virtualbox.org                 # VirtualBox
