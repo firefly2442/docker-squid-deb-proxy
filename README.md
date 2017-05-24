@@ -1,4 +1,4 @@
-This Docker container creates an instance of [squid-deb-proxy]() that listens
+This Docker container creates an instance of squid-deb-proxy that listens
 for `apt` connections on port 8002, and caches the packages.
 
 Several third party repositories are configured in the ACL, in addition to
