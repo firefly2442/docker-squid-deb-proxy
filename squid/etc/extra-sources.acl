@@ -1,4 +1,6 @@
 data.alienvault.com                     # AlienVault
+ftp.us.debian.org                       # Debian US Mirror
+security.debian.org                     # Debian Security
 fai-project.org                         # Debian FAI
 apt.dockerproject.org                   # Docker
 packages.elastic.co                     # Elastic (ELK)
@@ -14,5 +16,7 @@ www.ossim.net                           # OSSIM (AlienVault)
 download.proxmox.com                    # Proxmox
 archive.raspbian.org                    # RaspberryPi
 repo.saltstack.com                      # SaltStack
+us.archive.ubuntu.com                   # Ubuntu US Mirror
+security.ubuntu.com                     # Ubuntu Security
 ppa.launchpad.net                       # Ubuntu PPA
 download.virtualbox.org                 # VirtualBox
