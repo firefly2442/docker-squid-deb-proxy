@@ -6,8 +6,10 @@ apt.dockerproject.org                   # Docker
 packages.elastic.co                     # Elastic (ELK)
 dl.google.com                           # Google
 packages.graylog2.org                   # Graylog
+toolbelt.heroku.com                     # Heroku Toolbelt
 pkg.jenkins.io                          # Jenkins
 http.kali.org                           # Kali
+archive.kali.org                        # Kali Archive
 nginx.org                               # Nginx
 download.opensuse.org                   # OpenSUSE (Bro)
 build.openvpn.net                       # OpenVPN
@@ -18,5 +20,6 @@ archive.raspbian.org                    # RaspberryPi
 repo.saltstack.com                      # SaltStack
 us.archive.ubuntu.com                   # Ubuntu US Mirror
 security.ubuntu.com                     # Ubuntu Security
+extras.ubuntu.com                       # Ubuntu Extras
 ppa.launchpad.net                       # Ubuntu PPA
 download.virtualbox.org                 # VirtualBox
