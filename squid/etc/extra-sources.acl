@@ -3,11 +3,16 @@ ftp.us.debian.org                       # Debian US Mirror
 security.debian.org                     # Debian Security
 fai-project.org                         # Debian FAI
 apt.dockerproject.org                   # Docker
+download.docker.com			# Docker
 packages.elastic.co                     # Elastic (ELK)
 dl.google.com                           # Google
 packages.graylog2.org                   # Graylog
+toolbelt.heroku.com                     # Heroku Toolbelt
+cli-assets.heroku.com			# Heroku CLI
 pkg.jenkins.io                          # Jenkins
 http.kali.org                           # Kali
+archive.kali.org                        # Kali Archive
+mirrors.ocf.berkeley.edu                # Kali Mirror
 nginx.org                               # Nginx
 download.opensuse.org                   # OpenSUSE (Bro)
 build.openvpn.net                       # OpenVPN
@@ -18,5 +23,6 @@ archive.raspbian.org                    # RaspberryPi
 repo.saltstack.com                      # SaltStack
 us.archive.ubuntu.com                   # Ubuntu US Mirror
 security.ubuntu.com                     # Ubuntu Security
+extras.ubuntu.com                       # Ubuntu Extras
 ppa.launchpad.net                       # Ubuntu PPA
 download.virtualbox.org                 # VirtualBox
