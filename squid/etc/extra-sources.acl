@@ -5,6 +5,7 @@ fai-project.org                         # Debian FAI
 apt.dockerproject.org                   # Docker
 download.docker.com			# Docker
 packages.elastic.co                     # Elastic (ELK)
+artifacts.elastic.co                    # Elastic (ELK)
 dl.google.com                           # Google
 packages.graylog2.org                   # Graylog
 toolbelt.heroku.com                     # Heroku Toolbelt
