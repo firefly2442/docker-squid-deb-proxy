@@ -21,6 +21,7 @@ osquery-packages.s3.amazonaws.com       # osquery
 updates.atomicorp.com                   # OSSEC
 www.ossim.net                           # OSSIM (AlienVault)
 download.proxmox.com                    # Proxmox
+enterprise.proxmox.com                  # Proxmox
 archive.raspbian.org                    # RaspberryPi
 repo.saltstack.com                      # SaltStack
 apt.spideroak.com                       # SpiderOAK
