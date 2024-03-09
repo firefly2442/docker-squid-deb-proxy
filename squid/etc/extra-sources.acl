@@ -30,7 +30,6 @@ repo.saltstack.com                      # SaltStack
 apt.spideroak.com                       # SpiderOAK
 us.archive.ubuntu.com                   # Ubuntu US Mirror
 security.ubuntu.com                     # Ubuntu Security
-#extras.ubuntu.com                       # Ubuntu Extras
 ppa.launchpad.net                       # Ubuntu PPA
 download.virtualbox.org                 # VirtualBox
 packages.wazuh.com                      # Wazuh (OSSEC fork)
@@ -43,6 +42,7 @@ releases.ansible.com                    # Ansible
 dl.google.com                           # Google repositories
 raw.githubusercontent.com               # Static files from github
 github.com                              # Github
+github.io                               # Github.io
 get.docker.io                           # Docker
 dl.dropboxusercontent.com               # Dropbox URI
 cloud-images.ubuntu.com                 # Base vboxes
@@ -60,3 +60,7 @@ geoip.ubuntu.com			            # allow geoip lookup for location
 keyserver.ubuntu.com                    # allow ppa (key) addition
 code.visualstudio.com                   # VSCode
 apt.pop-os.org                          # Pop-OS
+cloud.r-project.org                     # R
+download1.rstudio.org                   # RStudio / Posit
+discord.com                             # Discord
+nvidia.github.io                        # Nvidia Github

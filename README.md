@@ -1,7 +1,7 @@
 # docker-squid-deb-proxy
 
 This Docker container creates an instance of squid-deb-proxy that listens
-for `apt` connections on port 8002, and caches the packages.
+for `apt` connections and caches packages.
 
 Several third party repositories are configured in the ACL, in addition to
 official repositories.
@@ -44,3 +44,5 @@ docker compose down -v
 ## References
 
 * [https://askubuntu.com/questions/3503/best-way-to-cache-apt-downloads-on-a-lan](https://askubuntu.com/questions/3503/best-way-to-cache-apt-downloads-on-a-lan)
+* [https://github.com/SafeEval/docker-squid-deb-proxy](https://github.com/SafeEval/docker-squid-deb-proxy) - forked version
+* [http://wiki.squid-cache.org/SquidFaq/SquidLogs](http://wiki.squid-cache.org/SquidFaq/SquidLogs)
