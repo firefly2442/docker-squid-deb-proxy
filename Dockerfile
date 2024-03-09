@@ -1,12 +1,15 @@
-FROM debian:jessie
-MAINTAINER Jack Sullivan
+FROM ubuntu:22.04
 
 # Install squid-deb-proxy
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends \
-      squid-deb-proxy \
-      squid-deb-proxy-client && \
-    apt-get clean
+# https://github.com/moby/buildkit/blob/master/frontend/dockerfile/docs/reference.md#run---mounttypecache
+RUN rm -f /etc/apt/apt.conf.d/docker-clean; echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' > /etc/apt/apt.conf.d/keep-cache
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    apt update && \
+    DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata && \
+    apt install -y --no-install-recommends nano ca-certificates squid-deb-proxy squid-deb-proxy-client && \
+    apt -y upgrade && \
+    apt autoremove -y
 
 # Copy init script
 COPY entrypoint.sh /data/entrypoint.sh
@@ -18,7 +21,5 @@ RUN ln -sf /data/squid/log/access.log /var/log/squid-deb-proxy/access.log
 RUN ln -sf /data/squid/log/store.log /var/log/squid-deb-proxy/store.log
 RUN ln -sf /data/squid/log/cache.log /var/log/squid-deb-proxy/cache.log
 RUN ln -sf /data/squid/etc/extra-sources.acl /etc/squid-deb-proxy/mirror-dstdomain.acl.d/20-extra-sources.acl
-
-EXPOSE 8000/tcp
 
 ENTRYPOINT ["/data/entrypoint.sh"]
