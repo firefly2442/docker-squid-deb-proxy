@@ -2,13 +2,57 @@ version: '3'
 
 services:
   squid-deb-proxy:
-    build: .
+    build: ./squid-deb-proxy/
     container_name: squid-deb-proxy
     hostname: squid-deb-proxy
     ports:
       - "3143:8000/tcp"
     volumes:
-      - ./squid:/data/squid
+      - ./squid:/data/squid:rw
+    environment:
+      TZ: "America/Chicago"
+    restart: unless-stopped
+
+  # https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/
+  grafana:
+    build: ./grafana/
+    container_name: grafana
+    hostname: grafana
+    # root user, so it can write to the bind mount location
+    user: '0'
+    ports:
+      - "3144:3000/tcp"
+    volumes:
+      - ./grafana-bind:/var/lib/grafana:rw
+    environment:
+      TZ: "America/Chicago"
+      GF_INSTALL_PLUGINS: "grafana-clock-panel"
+    restart: unless-stopped
+
+  loki:
+    build: ./loki/
+    container_name: loki
+    hostname: loki
+    command: -config.file=/etc/loki/loki-config.yaml
+    # ports:
+    #   - "3100:3100/tcp"
+    # root user, so it can write to the bind mount location
+    user: '0'
+    volumes:
+      - ./loki-bind:/loki:rw
+    environment:
+      TZ: "America/Chicago"
+    restart: unless-stopped
+
+  promtail:
+    build: ./promtail/
+    container_name: promtail
+    hostname: promtail
+    command: -config.file=/etc/promtail/promtail-config.yaml
+    volumes:
+      - ./squid:/data/squid:ro
+    # ports:
+    #   - "9080:9080/tcp"
     environment:
       TZ: "America/Chicago"
     restart: unless-stopped

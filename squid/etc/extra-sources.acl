@@ -58,11 +58,13 @@ download.rethinkdb.com                  # RethinkDB
 download.opensuse.org                   # OpenSuse Build Service
 geoip.ubuntu.com			            # allow geoip lookup for location
 keyserver.ubuntu.com                    # allow ppa (key) addition
+motd.ubuntu.com                         # Ubuntu message of the day
+esm.ubuntu.com                          # Ubuntu expanded security maintenance
 code.visualstudio.com                   # VSCode
 apt.pop-os.org                          # Pop-OS
 cloud.r-project.org                     # R
 download1.rstudio.org                   # RStudio / Posit
 discord.com                             # Discord
 nvidia.github.io                        # Nvidia Github
-aquasecurity.github.io			# Trivy
-deb.nodesource.com			# Node
+aquasecurity.github.io			        # Trivy
+deb.nodesource.com			            # Node

@@ -9,3 +9,6 @@ bootstrap_salt.sh
 
 squid/cache
 squid/log
+
+grafana-bind
+loki-bind

@@ -35,6 +35,31 @@ Acquire {
 };
 ```
 
+## Usage
+
+Access the Grafana UI at: [http://localhost:3144](http://localhost:3144)
+The default credentials are `admin:admin`
+
+Helpful Grafana logql queries to look at the data:
+
+```shell
+{filename="/data/squid/log/access.log"} 
+| regexp `^\d+.\d+.*[HIT|MISS|DENIED|NOFETCH|TUNNEL].*\d{3} (?P<bytes>(\d+))`
+
+sum by (type) (
+sum_over_time({filename="/data/squid/log/access.log"}
+    | regexp `(^(?P<datetime>\d+.\d+).*(?P<type>(HIT|MISS|DENIED|NOFETCH|TUNNEL)).*\d{3} (?P<bytes>(\d+)))` 
+    | __error__="" | unwrap bytes[15m])
+)
+```
+
+To see if there are any cases where Squid is blocking the request and additional items
+need to be added to the `extra-sources.acl` use the following Grafana logql query:
+
+```shell
+{filename="/data/squid/log/access.log"} |~ "DENIED"
+```
+
 ## Teardown
 
 ```shell
@@ -46,3 +71,6 @@ docker compose down -v
 * [https://askubuntu.com/questions/3503/best-way-to-cache-apt-downloads-on-a-lan](https://askubuntu.com/questions/3503/best-way-to-cache-apt-downloads-on-a-lan)
 * [https://github.com/SafeEval/docker-squid-deb-proxy](https://github.com/SafeEval/docker-squid-deb-proxy) - forked version
 * [http://wiki.squid-cache.org/SquidFaq/SquidLogs](http://wiki.squid-cache.org/SquidFaq/SquidLogs)
+* [https://www.websense.com/content/support/library/web/v773/wcg_help/squid.aspx](https://www.websense.com/content/support/library/web/v773/wcg_help/squid.aspx)
+* [LogQL Query Youtube Video Tutorial](https://www.youtube.com/watch?v=7h1-YMFjldI)
+* [https://grafana.com/blog/2021/01/11/how-to-use-logql-range-aggregations-in-loki/](https://grafana.com/blog/2021/01/11/how-to-use-logql-range-aggregations-in-loki/)
