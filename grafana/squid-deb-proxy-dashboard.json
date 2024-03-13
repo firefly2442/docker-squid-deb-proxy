@@ -141,7 +141,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "sum by (type) (\nsum_over_time({filename=\"/data/squid/log/access.log\"}\n    | regexp `(^(?P<datetime>\\d+.\\d+).*(?P<type>(HIT|MISS|DENIED|NOFETCH|TUNNEL)).*\\d{3} (?P<bytes>(\\d+)))` \n    | __error__=\"\" | unwrap bytes[15m])\n)",
+          "expr": "sum by (type) (\nsum_over_time({filename=\"/data/squid/log/access.log\"}\n    | regexp `(^(?P<datetime>\\d+.\\d+).*(?P<type>(HIT|MISS|DENIED|NOFETCH|TUNNEL)).*\\d{3} (?P<bytes>(\\d+)))` \n    | __error__=\"\" | unwrap bytes [$__range])\n)",
           "queryType": "range",
           "refId": "A"
         }
@@ -268,7 +268,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "sum by (type) (\nsum_over_time({filename=\"/data/squid/log/access.log\"}\n    | regexp `(^(?P<datetime>\\d+.\\d+).*(?P<type>(HIT|MISS|DENIED|NOFETCH|TUNNEL)).*\\d{3} (?P<bytes>(\\d+)))` \n    | __error__=\"\" | unwrap bytes[15m])\n)",
+          "expr": "sum by (type) (\nsum_over_time({filename=\"/data/squid/log/access.log\"}\n    | regexp `(^(?P<datetime>\\d+.\\d+).*(?P<type>(HIT|MISS|DENIED|NOFETCH|TUNNEL)).*\\d{3} (?P<bytes>(\\d+)))` \n    | __error__=\"\" | unwrap bytes [$__range])\n)",
           "queryType": "range",
           "refId": "A"
         }
@@ -501,33 +501,6 @@
       "title": "Repository Connections",
       "transformations": [
         {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "Time",
-                "{repo=\"apt.pop-os.org\"}",
-                "{repo=\"aquasecurity.github.io\"}",
-                "{repo=\"archive.ubuntu.com\"}",
-                "{repo=\"changelogs.ubuntu.com\"}",
-                "{repo=\"cloud.r-project.org\"}",
-                "{repo=\"deb.nodesource.com\"}",
-                "{repo=\"dl.google.com\"}",
-                "{repo=\"download.docker.com\"}",
-                "{repo=\"esm.ubuntu.com\"}",
-                "{repo=\"motd.ubuntu.com\"}",
-                "{repo=\"nvidia.github.io\"}",
-                "{repo=\"packages.microsoft.com\"}",
-                "{repo=\"ports.ubuntu.com\"}",
-                "{repo=\"ppa.launchpad.net\"}",
-                "{repo=\"repo.steampowered.com\"}",
-                "{repo=\"security.ubuntu.com\"}",
-                "{repo=\"us.archive.ubuntu.com\"}"
-              ]
-            }
-          }
-        },
-        {
           "id": "reduce",
           "options": {
             "labelsToFields": true,
@@ -546,6 +519,22 @@
                 "field": "Max"
               }
             ]
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "repo"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
           }
         }
       ],
@@ -605,6 +594,6 @@
   "timezone": "browser",
   "title": "Squid-Deb-Proxy Dashboard",
   "uid": "adfed4mjrbq4ga",
-  "version": 8,
+  "version": 12,
   "weekStart": ""
 }
