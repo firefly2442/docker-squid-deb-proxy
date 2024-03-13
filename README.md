@@ -51,6 +51,13 @@ sum_over_time({filename="/data/squid/log/access.log"}
     | regexp `(^(?P<datetime>\d+.\d+).*(?P<type>(HIT|MISS|DENIED|NOFETCH|TUNNEL)).*\d{3} (?P<bytes>(\d+)))` 
     | __error__="" | unwrap bytes[15m])
 )
+
+sum by (repo) (
+count_over_time(
+{filename="/data/squid/log/access.log"} 
+  | regexp `\sTCP.*?(?P<repo>[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b)`
+  | __error__="" [15m])
+)
 ```
 
 To see if there are any cases where Squid is blocking the request and additional items
