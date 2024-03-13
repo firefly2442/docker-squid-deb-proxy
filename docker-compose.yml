@@ -8,7 +8,9 @@ services:
     ports:
       - "3143:8000/tcp"
     volumes:
-      - ./squid:/data/squid:rw
+      - ./squid/etc/:/data/squid/etc/:rw
+      - /srv/docker/squid-deb-proxy/cache/:/data/squid/cache/:rw
+      - /srv/docker/squid-deb-proxy/log/:/data/squid/log/:rw
     environment:
       TZ: "America/Chicago"
     restart: unless-stopped
