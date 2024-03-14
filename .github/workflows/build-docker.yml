@@ -39,6 +39,8 @@ jobs:
           context: "{{defaultContext}}:squid-deb-proxy"
           tags: ghcr.io/firefly2442/docker-squid-deb-proxy:latest
           platforms: linux/amd64
+          # Load is a shorthand for --output=type=docker (default false)
+          load: true
           # https://github.com/docker/build-push-action/blob/master/docs/advanced/cache.md
           # cache-from: type=registry,ref=ghcr.io/firefly2442/docker-squid-deb-proxy:latest
           # cache-to: type=inline
