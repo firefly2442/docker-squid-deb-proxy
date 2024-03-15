@@ -52,7 +52,7 @@ services:
     hostname: promtail
     command: -config.file=/etc/promtail/promtail-config.yaml
     volumes:
-      - ./squid:/data/squid:ro
+      - /srv/docker/squid-deb-proxy/log/:/data/squid/log:ro
     # ports:
     #   - "9080:9080/tcp"
     environment:
