@@ -30,13 +30,20 @@ query_scheduler:
 
 schema_config:
   configs:
-    - from: 2020-10-24
-      store: boltdb-shipper
-      object_store: filesystem
-      schema: v11
+    #- from: 2020-10-24
+      #store: boltdb-shipper
+      #object_store: filesystem
+      #schema: v11
+      #index:
+        #prefix: index_
+        #period: 24h
+    - from: "2025-02-28" # <---- A date in the future
       index:
-        prefix: index_
         period: 24h
+        prefix: index_
+      object_store: filesystem
+      schema: v13
+      store: tsdb
 
 ruler:
   alertmanager_url: http://localhost:9093
