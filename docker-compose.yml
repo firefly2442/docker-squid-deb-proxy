@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   squid-deb-proxy:
     build: ./squid-deb-proxy/
