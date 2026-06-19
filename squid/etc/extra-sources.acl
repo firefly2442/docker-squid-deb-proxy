@@ -71,3 +71,4 @@ deb.nodesource.com			# Node
 twingate.com				# Twingate
 packages.twingate.com			# Twingate
 s3.amazonaws.com			# For Twingate file hosting
+ppa.launchpadcontent.net  # more PPA urls
